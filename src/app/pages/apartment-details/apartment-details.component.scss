@@ -1,0 +1,297 @@
+@import "../../../assets/styles/variables.scss";
+
+div.main {
+  width: 90%;
+  margin: 20px auto;
+  margin-bottom: 150px;
+}
+
+.container-top-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.photos {
+  width: 60%;
+  height: 500px;
+}
+
+.formField {
+  width: 35%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+form {
+  width: 80%;
+}
+
+div.apartDescription {
+  width: 100%;
+  min-height: 250px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  background-color: transparent;
+}
+
+div.box-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.descr-left {
+  width: 60%;
+}
+
+div.descr-right {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+img.imageSlides {
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto contain;
+}
+
+p,
+span {
+  font-family: $mainFont;
+  color: $textColor;
+  line-height: 25px;
+  text-align: justify;
+}
+
+img.icons {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.btnBack {
+  border: none;
+  background-color: transparent;
+  font-family: $mainFont;
+  border-radius: 3px;
+  color: $textColor;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $textColor;
+  transition-property: border-right;
+  transition-duration: 0.3s;
+}
+
+.btnBack:hover {
+  border-right: 1px solid $textColor;
+}
+
+.map {
+  width: 60%;
+  height: 500px;
+}
+
+iframe {
+  width: 100%;
+  height: 500px;
+  border: 0;
+}
+
+.btnShow {
+  border: none;
+  margin-left: 5px;
+  background-color: transparent;
+  font-family: $mainFont;
+  color: $darkColor;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+.btnShow:focus,
+.btnRequest:focus,
+.btnBack:focus,
+.formSpace {
+  outline: 0;
+  box-shadow: 0;
+}
+
+.btnShow:hover {
+  color: #2b475c;
+}
+
+label {
+  font-family: $mainFont;
+  color: $textColor;
+}
+
+.formSpace {
+  font-family: $mainFont;
+  color: $textColor;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+textarea.formSpace {
+  height: 110px;
+}
+
+.formSpace:focus {
+  box-shadow: 6px 7px 2px -3px rgba(23, 162, 184, 0.56);
+}
+.ng-dirty[required],.ng-dirty.required{
+  border-left: 5px solid maroon;
+}
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid rgba(66, 169, 71, 0.76);
+  box-shadow: 6px 7px 2px -3px rgba(23, 184, 109, 0.56)
+}
+.btnRequest {
+  border: none;
+  background-color: transparent;
+  font-family: $mainFont;
+  color: $darkColor;
+  cursor: pointer;
+  border-bottom: 1px solid $textColor;
+  transition-property: border-bottom, color;
+  transition-duration: 0.3s;
+}
+
+.btnRequest:hover {
+  color: $textColor;
+  border-bottom: 1px solid $darkColor;
+}
+
+@media screen and (max-width: 1000px) {
+  form {
+    width: 95%;
+  }
+
+  div.apartDescription {
+    font-size: 14px;
+  }
+
+  .map,
+  iframe {
+    height: 400px;
+  }
+
+  img.icons {
+    width: 30px;
+    height: 30px;
+  }
+
+  div.descr-left {
+    width: 65%;
+  }
+
+  div.descr-right {
+    width: 33%;
+  }
+
+  .formSpace,
+  .btnRequest,
+  .btnBack {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-top-info {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div.photos {
+    width: 85%;
+    height: 450px;
+  }
+
+  div.formField {
+    width: 70%;
+  }
+
+  img.imageSlides {
+    height: 450px;
+  }
+
+  div.apartDescription {
+    font-size: 12px;
+  }
+
+  div.descr-right {
+    padding-left: 15px;
+  }
+
+  .map {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  div.main {
+    width: 95%;
+  }
+
+  div.photos {
+    width: 100%;
+    height: 350px;
+  }
+
+  img.imageSlides {
+    height: 350px;
+  }
+
+  img.icons {
+    width: 25px;
+    height: 25px;
+  }
+
+  p {
+    line-height: 22px;
+  }
+
+  div.descr-right {
+    padding-left: 8px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .formSpace,
+  .btnRequest,
+  .btnBack {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  div.apartDescription{
+    font-size: 10px;
+  }
+  div.photos,
+  img.imageSlides {
+    height: 250px;
+  }
+
+  div.formField {
+    width: 90%;
+  }
+
+  div.box-info {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div.descr-left {
+    width: 90%;
+  }
+  div.descr-right{
+    width: 50%;
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,74 @@
+<div class="main">
+  <div class="header">
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btnAdd" (click)="openModal(template)">Додати</button>
+    </div>
+  </div>
+  <div class="info">
+    <div class="box" *ngFor="let dist of districts;">
+        <p>{{ dist.nameUA | titlecase }}</p>
+        <p>{{ dist.nameEN | titlecase }}</p>
+        <div class="btnFlex">
+          <button class="btnEdit" (click)="editDisctrict(template,dist)">Редагувати</button>
+          <button class="btnDelete" (click)="deleteDistrictConfirm(confirm,dist)">Видалити</button>
+        </div>
+    </div>
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <p *ngIf="!editStatus">Додати</p>
+    <p *ngIf="editStatus">Редагувати</p>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="disctrictNameUA">Назва на укр :</label>
+        <input id="disctrictNameUA" type="text" class="form-control" placeholder="введіть.." aria-label="введіть.."
+          [(ngModel)]="disctrictNameUA" name="disctrictNameUA">
+      </div>
+      <div class="form-group">
+        <label for="disctrictNameEN">Назва на англ :</label>
+        <input id="disctrictNameEN" type="text" class="form-control" placeholder="введіть.." aria-label="введіть.."
+          [(ngModel)]="disctrictNameEN" name="disctrictNameEN">
+      </div>
+      <button *ngIf="!editStatus" [disabled]="!disctrictNameEN" type="button" class="btn btn-success"
+        (click)="addDisctrict()">Додати</button>
+      <button *ngIf="editStatus" type="button" class="btn btn-success" (click)="saveEditDistrict()">Зберегти</button>
+    </form>
+  </div>
+</ng-template>
+<ng-template #confirm>
+  <div class="modal-body text-center">
+    <p>Впевнені, що хочете видалити?</p>
+    <button type="button" class="btn btn-danger mr-1" (click)="deleteDistrict()">Видалити</button>
+    <button type="button" class="btn btn-secondary" (click)="decline()">Скасувати</button>
+  </div>
+</ng-template>
+
+<!-- <div class="col-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Назва (укр.)</th>
+        <th scope="col">Назва (англ.)</th>
+        <th scope="col">Редагувати</th>
+        <th scope="col">Видалити</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dist of districts; let i=index">
+        <td>{{ i+1 }}</td>
+        <td>{{ dist.nameUA | titlecase }}</td>
+        <td>{{ dist.nameEN | titlecase }}</td>
+        <td><button class="btnEdit" (click)="editDisctrict(template,dist)">Редагувати</button></td>
+        <td><button class="btnDelete" (click)="deleteDistrictConfirm(confirm,dist)">Видалити</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

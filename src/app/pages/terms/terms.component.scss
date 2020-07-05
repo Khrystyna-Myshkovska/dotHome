@@ -1,0 +1,106 @@
+@import "../../../assets/styles/variables.scss";
+
+.main {
+  margin: 40px auto;
+  width: 90%;
+  margin-bottom: 150px;
+}
+
+.listLeft,
+.listRight {
+  width: 47%;
+}
+
+.listBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  color: $textColor;
+  font-family: $navFont;
+}
+
+p {
+  color: $darkColor;
+  font-family: $mainFont;
+  font-size: $navSize;
+  text-align: justify;
+}
+
+ul {
+  color: $textColor;
+  font-family: $mainFont;
+  padding-left: 20px;
+}
+
+ul.textEdit {
+  text-align: justify;
+}
+
+h3::before {
+  content: '\276F';
+}
+
+@media screen and (max-width: 1200px) {
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  ul {
+    font-size: 13px;
+  }
+
+  ul.textEdit {
+    text-align: left;
+  }
+
+  div.listLeft>p,
+  div.listRight>p {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  ul {
+    font-size: 12px;
+  }
+
+  .listBox {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .listLeft,
+  .listRight {
+    width: 100%;
+  }
+  ul{
+      padding-left: 10px;
+  }
+  ul.textEdit {
+    text-align: justify;
+  }
+}

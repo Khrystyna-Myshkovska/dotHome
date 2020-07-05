@@ -1,0 +1,211 @@
+@import "../../../assets/styles/variables.scss";
+
+.logoImage {
+  width: 250px;
+  height: 80px;
+}
+
+.navbar {
+  margin: 0px auto;
+  width: 80%;
+  padding: 0;
+  height: 80px;
+  background-color: transparent;
+}
+
+.nav-item {
+  font-size: $navSize;
+  font-family: $navFont;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $textColor;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.menu-left {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-right {
+  display: flex;
+  width: 10%;
+  justify-content: flex-end;
+}
+
+.btnLogin {
+  background-color: transparent;
+  border: none;
+  color: $textColor;
+  font-family: $navFont;
+  font-size: $navSize;
+  font-weight: bold;
+}
+
+.btnLogin:focus,
+.btnSignIn:focus,
+.btnSignUp:focus {
+  outline: 0;
+  box-shadow: 0;
+}
+
+.modal-title {
+  color: $textColor;
+  font-family: $navFont;
+  font-size: $navSize;
+}
+
+.form-control,
+label {
+  color: $darkColor;
+  letter-spacing: 1px;
+  font-family: $mainFont;
+  font-size: $textSize;
+}
+
+.btnSignIn,
+.btnSignUp {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: $textColor;
+  border-bottom: 1px solid $textColor;
+  font-family: $navFont;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.btnSignIn:hover,
+.btnSignUp:hover {
+  font-weight: bold;
+}
+
+.menu {
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerMenu {
+  position: absolute;
+  z-index: 20;
+  top: 55px;
+  left: -158px;
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  border: 1px  lavenderblush;
+  background-color: $secondMainColor;
+}
+
+.menuLink {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: $navFont;
+  font-size: $textSize;
+  padding: 15px;
+  font-weight: bold;
+  color: $textColor;
+}
+
+.menuLink:hover {
+  color: #17a2b8;
+}
+
+.iconMenu {
+  width: 60px;
+  cursor: pointer;
+  font-size: $navSize;
+  display: flex;
+  font-family: $navFont;
+  font-weight: bold;
+  color: $textColor;
+}
+.alert-info {
+  position: absolute;
+  margin: 3px 0 0 100px;
+  padding: 5px;
+  opacity: 0.5;
+}
+.uil-bars{
+  font-size: 30px;
+}
+.ng-dirty[required],.ng-dirty.required{
+  border-left: 5px solid maroon;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid rgba(66, 169, 71, 0.76);
+  box-shadow: 6px 7px 2px -3px rgba(23, 184, 109, 0.56)
+}
+@media screen and (max-width: 1200px) {
+  .nav-item {
+    font-size: $textSize;
+    letter-spacing: 0;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .mediaLogo {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .menu {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headerMenu {
+    height: 180px;
+  }
+
+  .menuLink {
+    font-size: 12px;
+    padding: 12px;
+  }
+
+  .iconMenu {
+    font-size: 14px;
+  }
+
+  .navbar {
+    height: 70px;
+    width: 100%;
+  }
+
+  .mediaLogo {
+    justify-content: space-around;
+  }
+
+  .logoImage {
+    width: 215px;
+    height: 65px;
+  }
+}
+@media screen and (max-width: 430px){
+  .headerMenu {
+    top: 55px;
+    left: -170px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .logoImage {
+    width: 200px;
+    height: 60px;
+  }
+  .headerMenu {
+    height: 160px;
+    width: 215px;
+    left: -180px;
+  }
+}

@@ -1,0 +1,240 @@
+@import "../../../assets/styles/variables.scss";
+
+div.main {
+  width: 90%;
+  margin: 40px auto;
+  margin-bottom: 200px;
+}
+
+div.box-info-flex {
+  display: flex;
+  justify-content: space-between;
+  min-height: 500px;
+}
+
+.info {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+span,
+p {
+  color: $darkColor;
+  font-family: $mainFont;
+  text-align: justify;
+  font-size: $navSize;
+}
+
+h5 {
+  color: $textColor;
+  font-family: $navFont;
+  text-align: justify;
+  line-height: 30px;
+}
+
+ul {
+  font-family: $mainFont;
+  letter-spacing: 2px;
+  color: $textColor;
+}
+
+form {
+  width: 80%;
+}
+
+.btnRequest:focus {
+  outline: 0;
+  box-shadow: 0;
+}
+
+label {
+  font-family: $navFont;
+  color: $textColor;
+}
+
+.formSpace {
+  font-family: $mainFont;
+  color: $textColor;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+textarea.formSpace {
+  height: 110px;
+}
+
+.formSpace:focus {
+  box-shadow: 6px 7px 2px -3px rgba(23, 162, 184, 0.56);
+}
+
+.btnRequest {
+  border: none;
+  background-color: transparent;
+  font-family: $mainFont;
+  color: $darkColor;
+  cursor: pointer;
+  border-bottom: 1px solid $textColor;
+  transition-property: border-bottom, color;
+  transition-duration: 0.3s;
+}
+
+.btnRequest:hover {
+  color: $textColor;
+  border-bottom: 1px solid $darkColor;
+}
+.btnRequest:disabled{
+  opacity: 0.5;
+}
+.ng-dirty[required],.ng-dirty.required{
+  border-left: 5px solid maroon;
+}
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid rgba(66, 169, 71, 0.76);
+  box-shadow: 6px 7px 2px -3px rgba(23, 184, 109, 0.56)
+}
+.alert-info {
+  position: absolute;
+  margin: 3px 0 0 100px;
+  padding: 5px;
+  opacity: 0.5;
+}
+.cloud {
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../../../assets/images/lviv2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.cloudcontent {
+  position: relative;
+  color: #337AB7;
+  font-size:22px;
+  font-weight:bold;
+  z-index:100;
+}
+.cloud img {
+  width: 65%;
+  left: 0;
+  top: 70px;
+  position: absolute;
+  -webkit-user-select: none; 
+  -moz-user-select: none;   
+  -ms-user-select: none;
+  user-select: none;    
+  pointer-events: none;
+}
+@-webkit-keyframes animCloud {
+  from {
+      -webkit-transform: translateX(100%)
+  }
+  to {
+      -webkit-transform: translateX(-100%)
+  }
+}
+@-moz-keyframes animCloud {
+  from {
+      -moz-transform: translateX(100%)
+  }
+  to {
+      -moz-transform: translateX(-100%)
+  }
+}
+@keyframes animCloud {
+  from {
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+      transform: translateX(100%)
+  }
+  to {
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+      transform: translateX(-100%)
+  }
+}
+.cloud1 {
+  -webkit-animation: animCloud 20s infinite linear;
+  -moz-animation: animCloud 20s infinite linear;
+  animation: animCloud 20s infinite linear
+}
+.cloud2 {
+  -webkit-animation: animCloud 40s infinite linear;
+  -moz-animation: animCloud 40s infinite linear;
+  animation: animCloud 40s infinite linear
+}
+.cloud3 {
+  -webkit-animation: animCloud 60s infinite linear;
+  -moz-animation: animCloud 60s infinite linear;
+  animation: animCloud 60s infinite linear
+}
+.cloud4 {
+  -webkit-animation: animCloud 80s infinite linear;
+  -moz-animation: animCloud 80s infinite linear;
+  animation: animCloud 80s infinite linear
+}
+@media screen and (max-width: 1200px) {
+  h5{
+    font-size: 16px;
+  }
+  .cloud img{
+    width: 60%;
+    left: 0;
+    top: 110px;
+  }
+}
+@media screen and (max-width: 990px){
+  div.box-info-flex{
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px
+  }
+  .info{
+    width: 70%;
+  }
+  .cloud{
+    width: 75%;
+    height: 350px;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 768px){
+  label,input,.btnRequest,span,p,ul{
+    font-size: 14px;
+  }
+  .cloud{
+    width: 100%;
+  }
+  .info,form{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px){
+  h5{
+    font-size: 14px;
+    text-align: justify;
+    line-height: 22px;
+  }
+  label,input,.btnRequest,span,p,ul{
+    font-size: 12px;
+  }
+  ul{
+    letter-spacing: 1px;
+    padding-left: 15px;
+  }
+  .cloud{
+    height: 200px;
+  }
+  .cloud img{
+    width: 50%;
+    left: 0;
+    top: 10px;
+  }
+}

@@ -1,0 +1,68 @@
+@import "../../../assets/styles/variables.scss";
+
+.main {
+  width: 90%;
+  margin: 40px auto;
+  margin-bottom: 250px;
+}
+
+.box {
+  height: 300px;
+  border-bottom: 1px solid $textColor;
+  margin-bottom: 20px;
+  padding: 10px 0 0 10px;
+}
+
+.btnDelete {
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid $textColor;
+  background-color: $textColor;
+  color: $secondMainColor;
+  font-family: $mainFont;
+}
+
+.btnDelete:hover {
+  background-color: transparent;
+  border: 1px solid $textColor;
+  color: $textColor;
+}
+
+p {
+  color: $textColor;
+  letter-spacing: 2px;
+  font-family: $mainFont;
+  font-size: $navSize;
+  line-height: 1.2;
+}
+span{
+    letter-spacing: 0;
+    color: $darkColor;
+}
+@media screen and (max-width: 850px){
+  div.box{
+    height: 280px;
+  }
+  p,.btnDelete{
+    font-size: 16px;
+  }
+  .btnDelete{
+    height: 30px;
+  }
+}
+@media screen and (max-width: 500px){
+  div.box{
+    min-height: 260px;
+  }
+  p{
+    line-height: 1;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 360px){
+  
+  p,.btnDelete{
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,83 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="d-flex mediaLogo">
+      <a  [routerLink]="[ '/home' ]">
+        <img src="../../../assets/images/LOGOmini.png" class="logoImage" alt="logo">
+      </a>
+      <div class="menu">
+        <div class="iconMenu" (click)="openMenu()"><span><i class="uil uil-bars"></i></span></div>
+        <nav class="headerMenu" *ngIf="textMenu!=='Меню'">
+          <a [routerLink]="[ '/apartments' ]" (click)="openMenu()"  routerLinkActive="text-info" class="menuLink">Пошук <i class="uil uil-search-alt"></i></a>
+          <a [routerLink]="[ '/terms' ]" (click)="openMenu()" routerLinkActive="text-info" class="menuLink">Умови <i class="uil uil-invoice"></i></a>
+          <a [routerLink]="[ '/request' ]"(click)="openMenu()" routerLinkActive="text-info" class="menuLink">Запит на співпрацю <i class="uil uil-file-check-alt"></i></a>
+          <button *ngIf="!statusLogin" class="menuLink btnLogin" (click)="openModal(template)">Увійти<i
+              class="uil uil-sign-in-alt"></i>
+          </button>
+          <a *ngIf="statusLogin" class="menuLink" (click)="openMenu()" [routerLink]="[ '/'+urlLogin ]"
+            routerLinkActive="text-info">{{ pageLogin  | titlecase}} <i class="uil uil-user-check"></i>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto w-100 align-items-center">
+        <div class="menu-left">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/apartments' ]" routerLinkActive="text-info">
+              Пошук..
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="[ '/terms' ]" routerLinkActive="text-info">Умови</a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" [routerLink]="[ '/request' ]" routerLinkActive="text-info">Запит на співпрацю</a>
+          </li>
+        </div>
+        <div class="menu-right">
+          <li *ngIf="!statusLogin">
+            <button class="btnLogin" (click)="openModal(template)" routerLinkActive="text-info">Увійти<i
+                class="uil uil-sign-in-alt"></i>
+            </button>
+          </li>
+          <li class="nav-item" *ngIf="statusLogin">
+            <a class="nav-link" [routerLink]="[ '/'+urlLogin ]"
+              routerLinkActive="text-info">{{ pageLogin  | titlecase}}</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</header>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title">Увійти</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="login">Пошта :</label>
+        <input type="text" class="form-control" id="login" placeholder="name@example.com" [(ngModel)]="login"
+          name="login" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #mail="ngModel"  required>
+          <div *ngIf="mail.invalid && mail.dirty" class="alert alert-info">
+            <small>Введіть @mail коректно</small>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль :</label>
+        <input type="password" class="form-control" id="password" placeholder="password here .." [(ngModel)]="password"
+          name="password" #pass="ngModel" required minlength="8">
+          <div *ngIf="pass.invalid && pass.dirty" class="alert alert-info">
+            <small>Введіть пароль коректно</small>
+          </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer d-flex justify-content-between">
+    <button class="d-block btnSignIn" [disabled]="pass.invalid || mail.invalid" (click)="signIn()">Увійти</button>
+    <button class="d-block btnSignUp" [disabled]="pass.invalid || mail.invalid" (click)="signUp()">Зареєструватись</button>
+  </div>
+</ng-template>

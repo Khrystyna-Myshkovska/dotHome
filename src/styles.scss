@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/variables.scss";
+@font-face {
+  font-family: "OpenSens";
+  src: url(./assets/fonts/OpenSansCondensed-Light.ttf);
+}
+@font-face {
+  font-family: "Playfair";
+  src: url(./assets/fonts/PlayfairDisplay-Regular.ttf);
+}
+@font-face {
+  font-family: "Comforta";
+  src: url(./assets/fonts/Comfortaa-Regular.ttf);
+}
+body {
+  background-color: $mainBGColor;
+  padding-top: 20px;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: $textColor;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $darkColor;
+}
+@media screen and (max-width: 320px) {
+  body {
+    padding-top: 10px;
+  }
+}
+

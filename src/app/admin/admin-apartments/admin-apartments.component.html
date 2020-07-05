@@ -1,0 +1,159 @@
+<div class="main">
+  <div class="d-flex justify-content-between mb-3">
+    <input type="search" class="form-control search" placeholder="Вулиця, адреса" [(ngModel)]="filterApart"
+      name="filterApart">
+    <button class="btnAdd" (click)="openModal(template)">Додати</button>
+  </div>
+  <div class="d-flex flex-wrap justify-content-around">
+    <div class="infoBox" *ngFor="let apart of apartments | search: filterApart ">
+      <div class="apartImage">
+        <img [src]="apart?.imageMain" alt="">
+      </div>
+      <div class="info">
+        <p>Район : <span>{{apart?.district.nameUA | titlecase}}</span></p>
+        <p>Площа : <span>{{apart?.area}} м<sup>2</sup></span></p>
+        <p>Ціна : <span>{{apart?.price | hryvnia}}</span></p>
+        <p>Кількість кімнат : <span>{{apart?.rooms}}</span></p>
+        <p>Поверх : <span>{{apart?.floor}}</span></p>
+        <div class="d-flex justify-content-around">
+          <button class="btnEdit" (click)="editApartment(template,apart)">Редагувати</button>
+          <button class="btnDelete" (click)="deleteApartmentConfirm(confirm,apart)">Видалити</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <p *ngIf="!editStatus">Додати</p>
+    <p *ngIf="editStatus">Редагувати</p>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="districtSelect">Вибрати район :</label>
+        <select class="form-control" id="districtSelect" [(ngModel)]="districtName" (change)="setDistrict()"
+          name="districtName">
+          <option disabled selected>район...</option>
+          <option *ngFor="let dist of districts;" [value]="dist.nameUA">
+            {{dist.nameUA | titlecase}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="location">Адреса :</label>
+        <input id="location" type="text" class="form-control" placeholder="введіть.." aria-label="введіть.."
+          [(ngModel)]="location" name="location">
+      </div>
+      <div class="form-group">
+        <label for="map">Карта :</label>
+        <input id="map" type="text" class="form-control" placeholder="введіть.." aria-label="введіть.."
+          [(ngModel)]="map" name="map">
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="form-group">
+          <label for="area">Площа :</label>
+          <input id="area" type="number" class="form-control" placeholder="введіть.." aria-label="введіть.."
+            [(ngModel)]="area" name="area">
+        </div>
+        <div class="form-group">
+          <label for="price">Ціна :</label>
+          <input id="price" type="number" class="form-control" placeholder="введіть.." aria-label="введіть.."
+            [(ngModel)]="price" name="price">
+        </div>
+        <div class="form-group">
+          <label for="rooms">К-сть кімнат :</label>
+          <input id="rooms" type="number" class="form-control" placeholder="введіть.." aria-label="введіть.."
+            [(ngModel)]="rooms" name="rooms">
+        </div>
+        <div class="form-group">
+          <label for="floor">Поверх :</label>
+          <input id="floor" type="number" class="form-control" placeholder="введіть.." aria-label="введіть.."
+            [(ngModel)]="floor" name="floor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Опис :</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="введіть.." [(ngModel)]="description"
+          name="description">
+        </textarea>
+      </div>
+      <div class="form-group" *ngIf="editStatus">
+        <label for="status">Статус :</label>
+        <select class="form-control" id="status" [(ngModel)]="status" name="status">
+          <option disabled selected>статус...</option>
+          <option value="true">Актуально</option>
+          <option value="">Не актуально</option>
+        </select>
+      </div>
+      <div class="custom-file">
+        <input (change)="uploadImageFirst($event)" type="file" class="custom-file-input" id="validatedCustomFile"
+          required>
+        <label class="custom-file-label" for="validatedCustomFile">Вибрати фото 1</label>
+      </div>
+      <div class="progress mt-3 mb-3">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+          [style.width]="(uploadProgress1 | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div *ngIf="editStatus" class="returnImage">
+        <img class="smallImg" [src]="imageMain" alt="imageMain">
+        <button type="button" class="delImageBtn" (click)="deleteImage(image1,imageMain)"><i
+            class="uil uil-trash-alt"></i></button>
+      </div>
+      <div class="custom-file">
+        <input (change)="uploadImageSecond($event)" type="file" class="custom-file-input" id="validatedCustomFile2"
+          required>
+        <label class="custom-file-label" for="validatedCustomFile2">Вибрати фото 2</label>
+      </div>
+      <div class="progress mt-3 mb-3">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+          [style.width]="(uploadProgress2 | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div *ngIf="editStatus" class="returnImage">
+        <img class="smallImg" [src]="imageSecond" alt="imageSecond">
+        <button type="button" class="delImageBtn" (click)="deleteImage(image2,imageSecond)"><i
+            class="uil uil-trash-alt"></i></button>
+      </div>
+      <div class="custom-file">
+        <input (change)="uploadImageThird($event)" type="file" class="custom-file-input" id="validatedCustomFile3"
+          required>
+        <label class="custom-file-label" for="validatedCustomFile3">Вибрати фото 3</label>
+      </div>
+      <div class="progress mt-3 mb-3">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+          [style.width]="(uploadProgress3 | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div *ngIf="editStatus" class="returnImage">
+        <img class="smallImg" [src]="imageThird" alt="imageThird">
+        <button type="button" class="delImageBtn" (click)="deleteImage(image3,imageThird)"><i
+            class="uil uil-trash-alt"></i></button>
+      </div>
+      <div class="custom-file">
+        <input (change)="uploadImageFourth($event)" type="file" class="custom-file-input" id="validatedCustomFile4"
+          required>
+        <label class="custom-file-label" for="validatedCustomFile4">Вибрати фото 4</label>
+      </div>
+      <div class="progress mt-3 mb-3">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+          [style.width]="(uploadProgress4 | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div *ngIf="editStatus" class="returnImage">
+        <img class="smallImg" [src]="imageFourth" alt="imageFourth">
+        <button type="button" class="delImageBtn" (click)="deleteImage(image4,imageFourth)"><i
+            class="uil uil-trash-alt"></i></button>
+      </div>
+      <button *ngIf="!editStatus" [disabled]="!description" type="button" class="btn btn-success"
+        (click)="addApartment()">Додати</button>
+      <button *ngIf="editStatus" type="button" class="btn btn-success" (click)="saveEditApartment()">Зберегти</button>
+    </form>
+  </div>
+</ng-template>
+<ng-template #confirm>
+  <div class="modal-body text-center">
+    <p>Впевнені, що хочете видалити?</p>
+    <button type="button" class="btn btn-danger mr-1" (click)="deleteApartment()">Видалити</button>
+    <button type="button" class="btn btn-secondary" (click)="decline()">Скасувати</button>
+  </div>
+</ng-template>

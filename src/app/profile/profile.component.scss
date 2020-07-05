@@ -1,0 +1,237 @@
+@import "../../assets/styles/variables.scss";
+
+.main {
+  width: 90%;
+  margin: 30px auto;
+  margin-bottom: 300px;
+}
+
+h4 {
+  text-align: center;
+  font-family: $navFont;
+  color: $textColor;
+}
+label{
+    font-family: $mainFont;
+    color: $textColor;
+}
+input.form-control{
+    font-family: $navFont;
+    color: $darkColor;
+}
+.bg-success {
+  background-color: $textColor!important;
+}
+.progress-bar-striped {
+  background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+}
+p {
+    text-align: center;
+    font-family: $mainFont;
+    color: $textColor;
+    margin-bottom: 3px;
+}
+
+span {
+  font-weight: bold;
+  color: $darkColor;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+p.edInfo {
+  font-size: 12px;
+  text-align: end;
+  color: $darkColor;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+span:focus,.delImageBtn {
+  outline: none;
+  box-shadow: none;
+}
+
+.btnLogOut {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid $textColor;
+  color: $darkColor;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-family: $mainFont;
+  transition-property: border-left;
+  transition-duration: 0.3s;
+}
+
+.btnLogOut:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btnLogOut:hover {
+  border-bottom: 0;
+  border-left: 1px solid $textColor;
+}
+
+.userInfo {
+  width: 40%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ng-dirty[required],
+.ng-dirty.required {
+  border-left: 5px solid maroon;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid rgba(66, 169, 71, 0.76);
+  box-shadow: 6px 7px 2px -3px rgba(23, 184, 109, 0.56)
+}
+.image{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 45%;
+    height: 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+div.quote {
+  width: 75%;
+  margin: 0px auto;
+  height: 100px;
+  border-radius: 10px;
+  background-color: white;
+  border-left: 5px solid $textColor;
+}
+
+.imageQ {
+  width: 50px;
+  height: 50px;
+  background-image: url(../../assets/images/quote.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.blockquote-footer {
+  margin-left: 20px;
+  color: #17a2b8;
+}
+
+.textQ {
+  height: 50px;
+  padding-top: 20px;
+}
+div.returnImage{
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+img.smallImg{
+  width: 20%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.delImageBtn{
+  background-color: transparent;
+  border:none;
+  font-family: $navFont;
+  color: $textColor;
+}
+.uil-trash-alt{
+  font-size: 18px;
+}
+.uil-trash-alt:hover{
+  opacity: 0.7;
+  color: maroon;
+}
+@media screen and (max-width: 768px) {
+  .main{
+    margin-bottom: 250px;
+  }
+  .userInfo{
+    width: 80%;
+  }
+  div.quote{
+    height: 80px;
+  }
+  .imageQ {
+    width: 35px;
+    height: 35px;
+  }
+  .textQ,p,.btnLogOut {
+    font-size: 14px;
+  }
+  .image{
+    align-items: center;
+  }
+  img{
+    width: 40%;
+    height: 75%;
+  }
+  h4{
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .main{
+    margin-bottom: 200px;
+  }
+  div.quote{
+    width: 90%;
+    margin-top: 10px;
+  }
+  .textQ{
+    padding-top: 15px;
+  }
+  .userInfo{
+    width: 95%;
+    margin-top: 0px;
+  }
+  img{
+    width: 55%;
+    height: 80%;
+  }
+  h4{ font-size: 13px;}
+  .textQ,p,.btnLogOut {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .main{
+    margin-bottom: 150px;
+  }
+  div.quote{
+    height: 70px;
+  }
+  .textQ{
+    padding-top: 13px;
+    height: 35px;
+  }
+  .imageQ {
+    width: 25px;
+    height: 25px;
+  }
+  .blockquote-footer{
+    margin-left: 15px;
+    font-size: 60%;
+  }
+  img{
+    width: 75%;
+  }
+}

@@ -1,0 +1,75 @@
+<div class="main">
+  <h5 [@fadeIn]><b>&#10003;</b>Ми рієлторська компанія <b>".home",</b> яка вийшла на новий рівень співпраці з
+    клієнтами!.
+    Щоб знайти свою нову домівку, Вам достатньо вибрати квартиру, заповнити форму і протягом лічених хвилин ми з
+    Вами
+    зв'яжемось по телефону.
+  </h5>
+  <div class="box-info-flex">
+    <div class="cloud">
+      <div class="cloudcontent"></div>
+      <img src="../../../assets/images/cloud-01.png" alt="" class="cloud1">
+      <img src="../../../assets/images/cloud-02.png" alt="" class="cloud2">
+      <img src="../../../assets/images/cloud-03.png" alt="" class="cloud3">
+      <img src="../../../assets/images/cloud-04.png" alt="" class="cloud4">
+    </div>
+    <div class="info">
+      <form>
+        <div class="form-group">
+          <label for="name">Ім'я</label>
+          <input type="text" class="formSpace" id="name" placeholder="введіть ім'я.." [(ngModel)]="userName"
+            name="userName" #name="ngModel"  required minlength="2">
+            <div *ngIf="name.invalid && name.dirty" class="alert alert-info">
+              <small>Введіть ім'я коректно</small>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Пошта</label>
+          <input type="email" class="formSpace" id="email" placeholder="name@example.com" [(ngModel)]="email"
+            name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  #mail="ngModel"  required>
+            <div *ngIf="mail.invalid && mail.dirty" class="alert alert-info">
+              <small>Введіть @mail коректно</small>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" class="formSpace" id="phone" placeholder="напр.,0680457394" [(ngModel)]="phone" name="phone"
+            pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" #tel="ngModel" required>
+            <div *ngIf="tel.invalid && tel.dirty" class="alert alert-info">
+              <small>Введіть номер коректно</small>
+            </div>
+        </div>
+        <div class="form-group">
+          <textarea class="formSpace" [(ngModel)]="textRequest" name="textRequest" placeholder="залишити повідомлення"
+            id="textarea" required minlength="5"  #text="ngModel"></textarea>
+            <div *ngIf="text.invalid && text.dirty" class="alert alert-info">
+              <small>Мінімум 5 символів</small>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btnRequest" [disabled] = 'name.invalid || mail.invalid || tel.invalid' (click)="sendRequest()">
+            Зв'язатись з адміністратором
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="about">
+    <p>
+      Зовсім до недавна , орендувати квартиру було важко через такі причини як :
+      <b>занадто велика оплата маклерських послуг</b>, <b>можливість потрапити у руки шахраїв</b>. І ми подбали про
+      це. <b>Як?</b>
+    </p>
+    <ul>
+      <li>справедлива ціна за послуги</li>
+      <li>перевірені особисто нами всі об'єкти, що знаходяться на сайті</li>
+      <li>у разі некомпетентності в укладанні договору, ми Вам допоможемо, адже співпрацюємо з юристом</li>
+      <li>є можливіть виїзду на об'єкт з метою огляду, за попереднім узгодженням</li>
+    </ul>
+    <p>Якщо ви <b>орендодавець</b> і хочете розмістити своє житло на сайті, Вам достатньо заповнити форму. Ми Вам
+      перетелефонуємо
+      та пояснимо умови співпраці з нами, про наші вигоди.
+    </p>
+  </div>
+</div>

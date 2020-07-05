@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="box" *ngFor="let request of requests;">
+    <p>Ім'я : <span>{{ request.name | titlecase }}</span></p>
+    <p>Пошта : <span>{{ request.email}}</span></p>
+    <p>Телефон : <span>{{ request.phone}}</span></p>
+    <p>Об'єкт : <span>{{ request.apartment.location}}</span></p>
+    <p>Повідомлення : <span>{{ request.text}}</span></p>
+    <p>Дата : <span>{{request.date | date: 'short'}}</span></p>
+    <div class="d-flex">
+      <button class="btnDelete" (click)="deleteRequestConfirm(confirm,request)">Видалити</button>
+    </div>
+  </div>
+</div>
+<ng-template #confirm>
+  <div class="modal-body text-center">
+    <p>Впевнені, що хочете видалити?</p>
+    <button type="button" class="btn btn-danger mr-1" (click)="delete()">Видалити</button>
+    <button type="button" class="btn btn-secondary" (click)="decline()">Скасувати</button>
+  </div>
+</ng-template>

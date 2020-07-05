@@ -1,0 +1,45 @@
+@import "../../assets/styles/variables.scss";
+.container-fluid{
+    margin-top: 20px;
+}
+div.main{
+    width: 95%;
+    margin: 0px auto;
+}
+.nav-pills, .nav-pills.nav-link.active .show>.nav-link {
+    color: $textColor;
+}
+div.nav.flex-row.nav-pills{
+    justify-content: center;
+}
+.nav-pills .nav-link.active{
+    background-color: $secondMainColor;
+}
+.nav-link.active{
+    color: #17a2b8;
+}
+.nav-link:hover{
+    background-color:#d1c9bb;
+    color: #17a2b8
+}
+a{
+    margin-right: 10px;
+    font-family: $navFont;
+    font-size: $textSize;
+    color: $textColor;
+    line-height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-link{
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 590px) {
+    .nav-link{
+        padding: 5px;
+        font-size: 13px;
+        margin-right: 5px;
+    }
+}

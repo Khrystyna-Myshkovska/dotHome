@@ -1,0 +1,66 @@
+<div class="main">
+    <div class="d-flex justify-content-beetween">
+        <button type="button" class="btnLogOut" (click)="logOut()">Вийти</button>
+    </div>
+    <div class="quote">
+        <div class="d-flex">
+            <div class="imageQ"></div>
+            <p class="textQ">Нема місця, милішого за рідний дім.</p>
+        </div>
+        <footer class="blockquote-footer"><cite title="Source Title">Марк Туллій Цицерон</cite></footer>
+    </div>
+    <div class="userInfo">
+        <div class="image">
+            <img [src]="userImage"  alt="userImage">
+        </div>
+        <p class="edInfo" (click)="openModal(template)">заповнити інф-цію про себе</p>
+        <h4>{{userEmail}}</h4>
+        <p *ngIf="name!=''">{{ name }}</p>
+        <p *ngIf="phone!=''">{{ phone }}</p>
+        <p *ngIf="city!=''">{{ city }}</p>
+        <div class="text">
+            <p>Будемо раді співпрацювати разом з Вами. Детальніше за посиланням <span [routerLink]="[ '/request' ]">тут</span>.</p>
+        </div>
+    </div>
+</div>
+<ng-template #template>
+    <div class="modal-header">
+      <p>Додати</p>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label for="userName">Ім'я:</label>
+          <input type="text" class="form-control" id="userName" [(ngModel)]="userName" name="userName"
+          required minlength="2">
+        </div>
+        <div class="form-group">
+          <label for="userPhone">Телефон :</label>
+          <input type="text" class="form-control" id="userPhone" [(ngModel)]="userPhone" name="userPhone"
+          pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" required>
+        </div>
+        <div class="form-group">
+          <label for="userCity">Місто :</label>
+          <input type="text" class="form-control" id="userCity" [(ngModel)]="userCity" name="userCity"
+           required minlength="2">
+        </div>
+        <div class="custom-file">
+          <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="validatedCustomFile" required>
+          <label class="custom-file-label" for="validatedCustomFile">Вибрати фото...</label>
+        </div>
+        <div class="progress mt-3 mb-3">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+            [style.width]="(uploadProgress | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div *ngIf="editStatus" class="returnImage">
+            <img class="smallImg" [src]="userImage" alt="userImage">
+            <button type="button" class="delImageBtn" (click)="deleteImage(userImage)"><i class="uil uil-trash-alt"></i></button>
+        </div>
+        <button [disabled]="myForm.invalid" type="submit" class="btnLogOut" (click)="AddNewInfo()">Зберегти</button>
+      </form>
+    </div>
+  </ng-template>
+  

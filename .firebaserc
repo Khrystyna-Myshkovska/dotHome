@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "d0thome": {
+      "hosting": {
+        "dothome": [
+          "d0thome"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "d0thome"
+  }
+}

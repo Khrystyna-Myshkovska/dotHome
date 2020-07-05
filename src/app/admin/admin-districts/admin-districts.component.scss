@@ -1,0 +1,142 @@
+@import "../../../assets/styles/variables.scss";
+
+.main {
+  width: 90%;
+  margin: 40px auto;
+ margin-bottom: 400px;
+}
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  width: 30%;
+  height: 150px;
+  text-align: center;
+  font-family: $navFont;
+  font-size: $navSize;
+  color: $textColor;
+  padding-top: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.40);
+  margin-bottom: 20px;
+}
+div.btnFlex{
+  display: flex;
+  justify-content: space-around;
+}
+.btnAdd {
+  height: 46px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: $secondMainColor;
+  color: $textColor;
+  font-family: $mainFont;
+  transition-property: border color background-color;
+  transition-duration: 0.3s;
+}
+
+.btnAdd:hover {
+  background-color: transparent;
+  border: 1px solid $secondMainColor;
+  color: #17a2b8;
+}
+
+.btnEdit {
+  width: 45%;
+  font-size: $textSize;
+  background-color: transparent;
+  border: 1px solid $textColor;
+  color: $textColor;
+  border-radius: 5px;
+  font-family: $mainFont;
+}
+
+.btnEdit:hover {
+  background-color: $textColor;
+  color: $secondMainColor;
+}
+
+.btnDelete {
+  border: none;
+  width: 45%;
+  font-size: $textSize;
+  border-radius: 5px;
+  border: 1px solid $textColor;
+  background-color: $textColor;
+  color: $secondMainColor;
+  font-family: $mainFont;
+}
+
+.btnDelete:hover {
+  background-color: transparent;
+  border: 1px solid $textColor;
+  color: $secondMainColor;
+}
+
+@media screen and (max-width: 1100px) {
+  p{
+    font-size: 16px;
+  }
+  .btnAdd{
+    height: 40px;
+    width: 80px;
+    font-size: 16px;
+  }
+  .btnDelete,
+  .btnEdit{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px){
+  .btnAdd{
+    height: 38px;
+    width: 65px;
+    font-size: 14px;
+  }
+  div.btnFlex{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btnDelete,
+  .btnEdit{
+    width: 52%;
+    font-size: 12px;
+  }
+  .btnEdit{
+    margin: 5px 0 3px 0;
+  }
+  p{
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+@media screen and (max-width: 540px){
+  .main{
+    margin-bottom: 200px;
+  }
+  .box{
+    width: 48%;
+  }
+  p{
+    font-size: 12px;
+  }
+  .btnDelete,
+  .btnEdit{
+    width: 70%;
+  }
+  .btnEdit{
+    margin: 10px 0 10px 0;
+  }
+}
+@media screen and (max-width: 330px){
+  .btnAdd{
+    height: 30px;
+    font-size: 12px;
+  }
+  p,.btnEdit,.btnDelete{
+    font-size: 10px;
+  }
+}

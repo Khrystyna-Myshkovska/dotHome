@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="main">
+    <div class="">
+      <div class="nav flex-row nav-pills">
+        <a class="nav-link" [routerLink]="[ 'districts' ]" routerLinkActive="active">Райони</a>
+        <a class="nav-link" [routerLink]="[ 'apartments' ]" routerLinkActive="active">Квартири</a>
+        <a class="nav-link" [routerLink]="[ 'request' ]" routerLinkActive="active">Запити на співпрацю</a>
+        <a class="nav-link" style="cursor: pointer;" (click)="logOut()">Вийти</a>
+      </div>
+    </div>
+    <div class="">
+      <div class="tab-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
